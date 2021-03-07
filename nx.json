@@ -11,24 +11,21 @@
     "nx.json": "*"
   },
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
-  "npmScope": "altia2",
+  "npmScope": "ab",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
-  "projects": {
-    "catalog": {
-      "tags": []
-    },
-    "catalog-e2e": {
-      "tags": [],
-      "implicitDependencies": ["catalog"]
-    }
-  }
+  "projects": {}
 }
