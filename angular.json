@@ -30,6 +30,13 @@
     },
     "@nrwl/angular:component": {
       "style": "css"
+    },
+    "@schematics/angular:component": {
+      "inlineStyle": true,
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
     }
   },
   "projects": {
@@ -52,7 +59,9 @@
               "apps/catalog-web/src/favicon.ico",
               "apps/catalog-web/src/assets"
             ],
-            "styles": ["apps/catalog-web/src/styles.css"],
+            "styles": [
+              "apps/catalog-web/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -113,7 +122,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/catalog-web"],
+          "outputs": [
+            "coverage/apps/catalog-web"
+          ],
           "options": {
             "jestConfig": "apps/catalog-web/jest.config.js",
             "passWithNoTests": true
@@ -142,7 +153,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/catalog-web-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/catalog-web-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -176,7 +189,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/domain/home"],
+          "outputs": [
+            "coverage/libs/domain/home"
+          ],
           "options": {
             "jestConfig": "libs/domain/home/jest.config.js",
             "passWithNoTests": true
@@ -213,7 +228,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/data"],
+          "outputs": [
+            "coverage/libs/shared/data"
+          ],
           "options": {
             "jestConfig": "libs/shared/data/jest.config.js",
             "passWithNoTests": true
@@ -250,7 +267,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/ui"],
+          "outputs": [
+            "coverage/libs/shared/ui"
+          ],
           "options": {
             "jestConfig": "libs/shared/ui/jest.config.js",
             "passWithNoTests": true
