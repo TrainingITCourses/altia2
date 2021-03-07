@@ -5,12 +5,6 @@
   },
   "schematics": {
     "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
       "storybook-configuration": {
         "linter": "eslint"
       }
@@ -29,13 +23,11 @@
       "strict": true
     },
     "@nrwl/angular:component": {
-      "style": "css"
-    },
-    "@schematics/angular:component": {
+      "style": "css",
       "inlineStyle": true,
       "skipTests": true
     },
-    "@schematics/angular:service": {
+    "@nrwl/angular:service": {
       "skipTests": true
     }
   },
