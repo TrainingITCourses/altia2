@@ -1,5 +1,5 @@
-<ul>
-  <li *ngFor="let category of categories">
-    {{ category.name    }}
-  </li>
-</ul>
+<section class="flex one two-600 three-1200">
+  <ab-ui-card *ngFor="let category of props"
+              [props]="{title:{ caption:category.name}, description:category.description, footer:''}">
+  </ab-ui-card>
+</section>

@@ -1,2 +1,5 @@
-<h2>Categories</h2>
-<ab-home-categories [categories]="categories$ | async"></ab-home-categories>
+<ab-ui-page-header [props]="{caption:'Categories'}"></ab-ui-page-header>
+<ab-home-categories *ngIf="categories$ | async as categories" [props]="categories">
+</ab-home-categories>
+<ab-ui-loading *ngIf="loading"></ab-ui-loading>
+<ab-ui-error *ngIf="error" [props]="error"></ab-ui-error>

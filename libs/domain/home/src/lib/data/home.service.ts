@@ -1,6 +1,7 @@
+import { Category } from '@ab/models';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +11,9 @@ export class HomeService {
 
   getCategories$() {
     const url = 'https://angularbuilders-pre.herokuapp.com/api/v1/categories';
-    return this.http.get<any>(url).pipe(
-      map((results) => results.data),
-      tap({
-        next: (data) => console.log(data),
-      })
-    );
+    return this.http
+      .get<{ data: Category[] }>(url)
+      .pipe(map((results) => results.data));
   }
 
   getAllCategories() {

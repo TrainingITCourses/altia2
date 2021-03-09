@@ -25,9 +25,19 @@
     "@nrwl/angular:component": {
       "style": "css",
       "inlineStyle": true,
-      "skipTests": true
+      "skipTests": true,
+      "change-detection": "OnPush"
     },
     "@nrwl/angular:service": {
+      "skipTests": true
+    },
+    "@schematics/angular:component": {
+      "style": "css",
+      "inlineStyle": true,
+      "skipTests": true,
+      "change-detection": "OnPush"
+    },
+    "@schematics/angular:service": {
       "skipTests": true
     }
   },

@@ -1,3 +1,4 @@
+import { UiModule } from '@ab/ui';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
       ],
       { initialNavigation: 'enabled' }
     ),
+    UiModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

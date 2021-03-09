@@ -1,11 +1,12 @@
+import { Category } from '@ab/models';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ab-home-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css'],
+  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoriesComponent {
-  @Input() categories: any[] | null = [];
+  @Input() props: Category[] = [];
 }
