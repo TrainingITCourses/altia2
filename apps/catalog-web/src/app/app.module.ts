@@ -2,8 +2,14 @@ import { TermBoxModule } from '@ab/termbox';
 import { UiModule } from '@ab/ui';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { BrowserModule, Title } from '@angular/platform-browser';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterModule,
+} from '@angular/router';
+import { filter, map } from 'rxjs/operators';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -16,6 +22,7 @@ import { AppComponent } from './app.component';
       [
         {
           path: '',
+          data: { title: ' AB Catalog' },
           loadChildren: () =>
             import('@ab/home').then((module) => module.HomeModule),
         },
@@ -37,4 +44,16 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(router: Router, activatedRoute: ActivatedRoute, title: Title) {
+    router.events
+      .pipe(
+        filter((routerEvent) => routerEvent instanceof NavigationEnd),
+        map(() => activatedRoute.firstChild?.snapshot.data.title),
+        filter((title) => !!title)
+      )
+      .subscribe({
+        next: (titleText) => title.setTitle(titleText),
+      });
+  }
+}

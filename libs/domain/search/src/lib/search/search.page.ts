@@ -10,5 +10,7 @@ export class SearchPage {
 
   constructor(route: ActivatedRoute) {
     this.searchTerm$ = route.queryParams;
+
+    // ToDo: buscar cuando cambie el término de búqueda
   }
 }
