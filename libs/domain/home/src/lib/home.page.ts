@@ -23,8 +23,10 @@ export class HomePage {
     this.categories$ = service.getCategories$().pipe(
       tap({
         next: () => (this.loading = false),
+
         error: (err) => {
           this.error = err.message;
+          this.loading = false;
           cdr.markForCheck();
         },
       })
