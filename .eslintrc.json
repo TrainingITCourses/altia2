@@ -9,7 +9,7 @@
         "@angular-eslint/component-class-suffix": [
           "error",
           {
-            "suffixes": ["Component", "Page"]
+            "suffixes": ["Component", "Page", "Widget"]
           }
         ],
         "@nrwl/nx/enforce-module-boundaries": [

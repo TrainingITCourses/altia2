@@ -5,5 +5,7 @@ module.exports = {
     '<rootDir>/libs/shared/data',
     '<rootDir>/libs/shared/ui',
     '<rootDir>/libs/domain/category',
+    '<rootDir>/libs/domain/search',
+    '<rootDir>/libs/domain/term-box',
   ],
 };

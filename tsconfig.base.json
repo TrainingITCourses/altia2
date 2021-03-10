@@ -19,7 +19,9 @@
       "@ab/data": ["libs/shared/data/src/index.ts"],
       "@ab/ui": ["libs/shared/ui/src/index.ts"],
       "@ab/models": ["libs/shared/models/index.ts"],
-      "@ab/category": ["libs/domain/category/src/index.ts"]
+      "@ab/category": ["libs/domain/category/src/index.ts"],
+      "@ab/search": ["libs/domain/search/src/index.ts"],
+      "@ab/termbox": ["libs/domain/term-box/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

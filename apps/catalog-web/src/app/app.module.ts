@@ -1,3 +1,4 @@
+import { TermBoxModule } from '@ab/termbox';
 import { UiModule } from '@ab/ui';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    TermBoxModule,
     RouterModule.forRoot(
       [
         {
@@ -21,6 +23,11 @@ import { AppComponent } from './app.component';
           path: 'category',
           loadChildren: () =>
             import('@ab/category').then((module) => module.CategoryModule),
+        },
+        {
+          path: 'search',
+          loadChildren: () =>
+            import('@ab/search').then((module) => module.SearchModule),
         },
       ],
       { initialNavigation: 'enabled' }
