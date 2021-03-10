@@ -1,5 +1,5 @@
 <section class="flex one two-600 three-1200">
   <ab-ui-card *ngFor="let category of categories"
-              [props]="{title:{ caption:category.name}, description:category.description, footer:''}">
+              [props]="{title:{ caption:category.name, link: '/category/'+ category.id }, description:category.description, footer:''}">
   </ab-ui-card>
 </section>

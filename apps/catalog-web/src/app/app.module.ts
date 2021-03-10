@@ -17,6 +17,11 @@ import { AppComponent } from './app.component';
           loadChildren: () =>
             import('@ab/home').then((module) => module.HomeModule),
         },
+        {
+          path: 'category',
+          loadChildren: () =>
+            import('@ab/category').then((module) => module.CategoryModule),
+        },
       ],
       { initialNavigation: 'enabled' }
     ),

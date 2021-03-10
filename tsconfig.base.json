@@ -18,7 +18,8 @@
       "@ab/home": ["libs/domain/home/src/index.ts"],
       "@ab/data": ["libs/shared/data/src/index.ts"],
       "@ab/ui": ["libs/shared/ui/src/index.ts"],
-      "@ab/models": ["libs/shared/models/index.ts"]
+      "@ab/models": ["libs/shared/models/index.ts"],
+      "@ab/category": ["libs/domain/category/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

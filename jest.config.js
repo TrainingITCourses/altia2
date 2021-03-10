@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/libs/domain/home',
     '<rootDir>/libs/shared/data',
     '<rootDir>/libs/shared/ui',
+    '<rootDir>/libs/domain/category',
   ],
 };
