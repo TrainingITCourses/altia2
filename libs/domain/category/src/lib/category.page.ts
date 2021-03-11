@@ -7,6 +7,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CategoryPage {
   category = this.route.snapshot.data.category;
-
+  // ToDo: get items (compare with/without resolvers)
   constructor(private route: ActivatedRoute) {}
 }

@@ -1,0 +1,5 @@
+<section class="flex one two-600 three-1200">
+  <ab-ui-card *ngFor="let item of items"
+              [props]="{title:{ caption:item.name, link: '/item/'+ item.id }, description:item.description, footer:''}">
+  </ab-ui-card>
+</section>

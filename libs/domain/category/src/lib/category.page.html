@@ -1,3 +1,5 @@
 <ab-ui-page-header [props]="{caption:category.name}"></ab-ui-page-header>
-<pre>{{ category | json }}</pre>
+<ab-ui-card
+            [props]="{title:{ caption:category.name, link: '/category/'+ category.id }, description:category.description, footer:''}">
+</ab-ui-card>
 <!-- {{ items$ | async | json }} -->

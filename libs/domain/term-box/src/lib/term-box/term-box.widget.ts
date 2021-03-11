@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'ab-tem-box',
+  selector: 'ab-term-box',
   templateUrl: './term-box.widget.html',
   styles: [],
 })
@@ -14,14 +14,12 @@ export class TermBoxWidget {
   constructor(fb: FormBuilder, router: Router, route: ActivatedRoute) {
     this.termControl = fb.control('');
 
-    route.queryParams
-      .pipe(filter((queryParams) => !!queryParams.term))
-      .subscribe({
-        next: (queryParams) => this.termControl.patchValue(queryParams.term),
-      });
+    this.intializeFromQueryParams(route);
+    this.updateQueryParamsOnChanges(router);
+  }
 
+  private updateQueryParamsOnChanges(router: Router) {
     // ToDo: gestionar tecleos del usuario
-
     this.termControl.valueChanges.subscribe({
       next: (searchTerm) =>
         router.navigate(['search'], {
@@ -29,5 +27,13 @@ export class TermBoxWidget {
           queryParamsHandling: 'merge',
         }),
     });
+  }
+
+  private intializeFromQueryParams(route: ActivatedRoute) {
+    route.queryParams
+      .pipe(filter((queryParams) => !!queryParams.term))
+      .subscribe({
+        next: (queryParams) => this.termControl.patchValue(queryParams.term),
+      });
   }
 }

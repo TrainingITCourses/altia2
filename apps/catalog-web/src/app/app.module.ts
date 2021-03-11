@@ -22,17 +22,19 @@ import { AppComponent } from './app.component';
       [
         {
           path: '',
-          data: { title: ' AB Catalog' },
+          data: { title: 'A.B Catalog' },
           loadChildren: () =>
             import('@ab/home').then((module) => module.HomeModule),
         },
         {
           path: 'category',
+          data: { title: 'A.B Category view' },
           loadChildren: () =>
             import('@ab/category').then((module) => module.CategoryModule),
         },
         {
           path: 'search',
+          data: { title: 'A.B Searching' },
           loadChildren: () =>
             import('@ab/search').then((module) => module.SearchModule),
         },
@@ -46,6 +48,7 @@ import { AppComponent } from './app.component';
 })
 export class AppModule {
   constructor(router: Router, activatedRoute: ActivatedRoute, title: Title) {
+    // ToDo: use services for tracking and seo
     router.events
       .pipe(
         filter((routerEvent) => routerEvent instanceof NavigationEnd),

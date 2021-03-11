@@ -1,2 +1,8 @@
-<ab-ui-page-header [props]="{caption:'Searching...'}"></ab-ui-page-header>
-<h3> {{ searchTerm$ | async | json }} </h3>
+<ab-ui-page-header
+                   *ngIf="caption$ | async as caption"
+                   [props]="{ caption:caption }">
+</ab-ui-page-header>
+<ab-search-items
+                 *ngIf="items$ | async as items"
+                 [items]="items">
+</ab-search-items>

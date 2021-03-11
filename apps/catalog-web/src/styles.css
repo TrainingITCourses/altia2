@@ -59,8 +59,17 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-size: 2em;
+  font-size: 2.59em;
   margin: 0.67em 0;
+}
+h2 {
+  font-size: 1.61em;
+}
+h3 {
+  font-size: 1em;
+}
+h4 {
+  font-size: 0.62em;
 }
 mark {
   background: #fff;
