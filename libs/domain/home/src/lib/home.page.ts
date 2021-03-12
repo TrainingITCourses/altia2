@@ -17,6 +17,7 @@ export class HomePage {
   categories$: Observable<Category[]>;
   loading = true;
   error = '';
+
   constructor(service: HomeService, cdr: ChangeDetectorRef) {
     // this.categories = service.getAllCategories();
 

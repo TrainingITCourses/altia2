@@ -13,10 +13,9 @@ export class SearchService {
 
   getByQuery$(searchTerm: string) {
     const term = searchTerm.toLocaleLowerCase();
-    return this.http.get<{ data: any[] }>(this.endPoint).pipe(
-      map((results) => results.data),
-      map((items) => this.filterBySearchTerm(items, term))
-    );
+    return this.http
+      .get<any[]>(this.endPoint)
+      .pipe(map((items) => this.filterBySearchTerm(items, term)));
   }
 
   private filterBySearchTerm(items: any[], term: string) {

@@ -1,6 +1,7 @@
+import { AdapterInterceptor, DataModule } from '@ab/data';
 import { TermBoxModule } from '@ab/termbox';
 import { UiModule } from '@ab/ui';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import {
@@ -42,8 +43,11 @@ import { AppComponent } from './app.component';
       { initialNavigation: 'enabled' }
     ),
     UiModule,
+    DataModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AdapterInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

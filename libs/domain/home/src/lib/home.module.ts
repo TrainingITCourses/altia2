@@ -13,5 +13,6 @@ import { CategoriesComponent } from './ui/categories/categories.component';
     UiModule,
   ],
   declarations: [HomePage, CategoriesComponent],
+  providers: [],
 })
 export class HomeModule {}
