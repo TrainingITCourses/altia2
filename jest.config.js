@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/libs/domain/category',
     '<rootDir>/libs/domain/search',
     '<rootDir>/libs/domain/term-box',
+    '<rootDir>/libs/domain/audit',
   ],
 };

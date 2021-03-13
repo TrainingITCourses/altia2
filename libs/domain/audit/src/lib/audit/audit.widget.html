@@ -1,0 +1,4 @@
+<small *ngIf="audit$ | async as audit">
+  <span *ngIf="audit.loading"> 📡 </span>
+  <span *ngIf="audit.error"> 💫 </span>
+</small>

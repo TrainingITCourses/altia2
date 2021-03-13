@@ -377,6 +377,43 @@
           }
         }
       }
+    },
+    "domain-audit": {
+      "projectType": "library",
+      "root": "libs/domain/audit",
+      "sourceRoot": "libs/domain/audit/src",
+      "prefix": "ab",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/domain/audit/tsconfig.lib.json",
+            "project": "libs/domain/audit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/domain/audit/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/domain/audit/src/**/*.ts",
+              "libs/domain/audit/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/domain/audit"],
+          "options": {
+            "jestConfig": "libs/domain/audit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "defaultProject": "catalog-web"

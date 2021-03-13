@@ -1,3 +1,4 @@
+import { AuditModule } from '@ab/audit';
 import {
   AdapterInterceptor,
   AuditInterceptor,
@@ -18,13 +19,12 @@ import {
 } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { AppComponent } from './app.component';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    TermBoxModule,
+
     RouterModule.forRoot(
       [
         {
@@ -50,6 +50,8 @@ import { AppComponent } from './app.component';
     ),
     UiModule,
     DataModule,
+    TermBoxModule,
+    AuditModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuditInterceptor, multi: true },

@@ -23,6 +23,7 @@
     "shared-ui": { "tags": ["shared", "ui"] },
     "domain-category": { "tags": ["domain", "category"] },
     "domain-search": { "tags": ["domain", "search"] },
-    "domain-term-box": { "tags": [] }
+    "domain-term-box": { "tags": [] },
+    "domain-audit": { "tags": ["domain", "feature"] }
   }
 }
