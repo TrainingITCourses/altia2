@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Audit } from './models/audit';
+import { Err } from './models/err';
 import { Store } from './store';
 
 @Injectable({
@@ -7,19 +8,19 @@ import { Store } from './store';
 })
 export class AuditService extends Store<Audit> {
   constructor() {
-    super({ loading: false, error: undefined });
+    super({ loading: false, error: null });
   }
 
   startLoading() {
-    super.setState({ loading: true, error: undefined });
+    super.setState({ loading: true, error: null });
   }
   endLoading() {
-    super.setState({ loading: false, error: undefined });
+    super.setState({ loading: false, error: null });
   }
-  gotError(error: { status: any; message: any }) {
+  gotError(error: Err) {
     super.setState({
       loading: false,
-      error: { status: error.status, message: error.message },
+      error: error,
     });
   }
 }

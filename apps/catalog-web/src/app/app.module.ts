@@ -52,9 +52,9 @@ import { AppComponent } from './app.component';
     DataModule,
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuditInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AdapterInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuditInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

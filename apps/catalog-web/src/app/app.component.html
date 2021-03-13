@@ -1,7 +1,7 @@
 <header>
   <h2>
     <ab-ui-header-title [props]="{caption: title, icon:'🚧', link:'/'}"></ab-ui-header-title>
-    {{ audit$ | async | json }}
+    <small *ngIf="audit$ | async as audit">{{ audit | json }}</small>
   </h2>
   <ab-term-box></ab-term-box>
 </header>

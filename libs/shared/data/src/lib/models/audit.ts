@@ -1,7 +1,6 @@
+import { Err } from './err';
+
 export interface Audit {
   loading: boolean;
-  error?: {
-    status: number;
-    message: string;
-  };
+  error: Err | null;
 }

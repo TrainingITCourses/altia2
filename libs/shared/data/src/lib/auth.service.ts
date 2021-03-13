@@ -9,13 +9,13 @@ import { Store } from './store';
 })
 export class AuthService extends Store<Auth> {
   constructor() {
-    super({ sessionToken: '', user: undefined, accessError: undefined });
+    super({ sessionToken: '', user: null, accessError: null });
   }
 
   logInUser(sessionToken: string) {
     const currentState = super.getState();
     currentState.sessionToken = sessionToken;
-    //currentState.accessError = false;
+    currentState.accessError = null;
     super.setState(currentState);
   }
 
@@ -25,12 +25,11 @@ export class AuthService extends Store<Auth> {
     super.setState(currentState);
   }
 
-  getAccessError$(): Observable<void> {
+  getAccessError$(): Observable<any> {
     return super.getState$().pipe(
-      map((state: Auth) => state.accessError || false),
+      map((state: Auth) => state.accessError),
       distinctUntilChanged(),
-      filter((accessError: boolean) => accessError),
-      map(() => undefined)
+      filter((accessError) => accessError != null)
     );
   }
 
