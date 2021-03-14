@@ -24,6 +24,7 @@
     "domain-category": { "tags": ["domain", "category"] },
     "domain-search": { "tags": ["domain", "search"] },
     "domain-term-box": { "tags": [] },
-    "domain-audit": { "tags": ["domain", "feature"] }
+    "domain-audit": { "tags": ["domain", "feature"] },
+    "domain-add-item": { "tags": ["domain", "route"] }
   }
 }

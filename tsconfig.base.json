@@ -22,7 +22,8 @@
       "@ab/category": ["libs/domain/category/src/index.ts"],
       "@ab/search": ["libs/domain/search/src/index.ts"],
       "@ab/termbox": ["libs/domain/term-box/src/index.ts"],
-      "@ab/audit": ["libs/domain/audit/src/index.ts"]
+      "@ab/audit": ["libs/domain/audit/src/index.ts"],
+      "@ab/addItem": ["libs/domain/add-item/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

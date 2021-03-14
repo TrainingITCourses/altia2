@@ -45,6 +45,11 @@ import { AppComponent } from './app.component';
           loadChildren: () =>
             import('@ab/search').then((module) => module.SearchModule),
         },
+        {
+          path: 'add-item',
+          loadChildren: () =>
+            import('@ab/addItem').then((module) => module.AddItemModule),
+        },
       ],
       { initialNavigation: 'enabled' }
     ),
