@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'ab-add-item-form',
@@ -6,8 +6,4 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class FormComponent {}
