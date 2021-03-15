@@ -1,52 +1,38 @@
 <form [formGroup]="form" (submit)="onSubmit()">
   <legend>Add a new resource</legend>
-  <div>
-    <label for="name">Name of resource:</label>
-    <input
-           name="name"
-           formControlName="name"
-           placeholder="Name of resource">
-    <span
-          *ngIf="hasErrorToShow('name')">
-      <em> * required min length of 2 and max of 10</em>
-    </span>
-  </div>
-  <div>
-    <label for="description">Description:</label>
-    <input
-           name="description"
-           formControlName="description"
-           placeholder="Brief description">
-    <span
-          *ngIf="hasErrorToShow('description')">
-      <em> * required min length of 2 and max of 250</em>
-    </span>
-  </div>
-  <div>
-    <label for="categoryId">Category:</label>
-    <select name="categoryId" formControlName="categoryId" #categoryID>
-      <option
-              [value]="category.id"
-              *ngFor="let category of props.categories"
-              #categoryID>
-        {{ category.name }}
-      </option>
-    </select>
-    <span
-          *ngIf="hasErrorToShow('categoryId')">
-      <em> * required</em>
-    </span>
-  </div>
-  <div>
-    <label for="price">Price: </label>
-    <input
-           name="price"
-           type="number"
-           placeholder="Price for assitent"
-           formControlName="price" />
-    <span
-          *ngIf="hasErrorToShow('price')">
-      <em> * between 0 and 999</em>
-    </span>
-  </div><input type="submit" value="Save" [disabled]="form.invalid">
+  <fieldset>
+    <ab-ui-input-control
+                         [form]="form"
+                         formControlName="name"
+                         [label]="'Name of resource'"
+                         [placeholder]="'Name of resource'">
+    </ab-ui-input-control>
+    <ab-ui-input-control
+                         [form]="form"
+                         formControlName="description"
+                         [label]="'Description'"
+                         [placeholder]="'Brief description'">
+    </ab-ui-input-control>
+    <div>
+      <label for="categoryId">Category:</label>
+      <select name="categoryId" formControlName="categoryId" #categoryID>
+        <option
+                [value]="category.id"
+                *ngFor="let category of props.categories"
+                #categoryID>
+          {{ category.name }}
+        </option>
+      </select>
+    </div>
+    <ab-ui-input-control
+                         [form]="form"
+                         formControlName="price"
+                         [label]="'Price'"
+                         type="number"
+                         placeholder="Price for assitent">
+    </ab-ui-input-control>
+    <ab-add-item-course-sub-form [hidden]="categoryID.value !== 'courses'">
+    </ab-add-item-course-sub-form>
+  </fieldset>
+  <input type="submit" value="Save" [disabled]="form.invalid" />
 </form>
