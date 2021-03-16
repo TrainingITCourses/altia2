@@ -1,12 +1,12 @@
 <div>
-  <label for="{{ formControlName }}">
+  <label [for]="formControlName">
     {{ label }}
   </label>
-  <input name="{{ formControlName }}"
+  <input [name]="formControlName"
          [value]="value"
          (input)="onInput($event)"
-         placeholder="{{placeholder}}" />
+         [placeholder]="placeholder" />
   <span *ngIf="hasErrorToShow()">
-    <em> * </em>
+    <em> * {{ getErrorMessage() }} </em>
   </span>
 </div>

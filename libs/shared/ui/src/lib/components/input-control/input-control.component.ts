@@ -52,4 +52,8 @@ export class InputControlComponent implements ControlValueAccessor {
     const control = this.form.controls[this.formControlName];
     return control.touched && control.invalid;
   }
+  getErrorMessage() {
+    const control = this.form.controls[this.formControlName];
+    return JSON.stringify(control.errors);
+  }
 }
