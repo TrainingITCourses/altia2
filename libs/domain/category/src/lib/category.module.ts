@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CategoryPage } from './category.page';
-import { CategoryResolver } from './data/category.resolver';
 
 @NgModule({
   imports: [
@@ -15,7 +14,7 @@ import { CategoryResolver } from './data/category.resolver';
         pathMatch: 'full',
         component: CategoryPage,
         resolve: {
-          category: CategoryResolver,
+          // category: CategoryResolver,
         },
       },
     ]),

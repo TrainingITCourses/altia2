@@ -1,5 +1,10 @@
-<ab-ui-page-header [props]="{caption:category.name}"></ab-ui-page-header>
-<ab-ui-card
-            [props]="{title:{ caption:category.name, link: '/category/'+ category.id }, description:category.description, footer:''}">
-</ab-ui-card>
-<!-- {{ items$ | async | json }} -->
+<ab-ui-page *ngIf="category$ | async as category" [headerProps]="{caption:category.name}">
+  <ab-ui-card
+              [props]="{title:{ caption:category.name, link: '/category/'+ category.id }, description:category.description, footer:''}">
+  </ab-ui-card>
+  <hr>
+  <hr>
+  <ab-ui-card *ngFor="let item of items$ | async"
+              [props]="{title:{ caption:item.name, link: '/item/'+ item.id }, description:item.description, footer:''}">
+  </ab-ui-card>
+</ab-ui-page>
