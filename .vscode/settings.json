@@ -25,6 +25,14 @@
         ["type", "Widget"]
       ],
       "detail": "Smart component, not asociated to a route"
+    },
+    {
+      "label": "🖼 Template",
+      "options": [
+        ["exports", "true"],
+        ["type", "Template"]
+      ],
+      "detail": "Container to include dynamic content"
     }
   ]
 }

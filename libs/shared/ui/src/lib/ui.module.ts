@@ -11,6 +11,7 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
 import { TrackDirective } from './directives/track.directive';
 import { MinDirective } from './directives/min.directive';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { PageTemplate } from './templates/page/page.template';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
@@ -24,6 +25,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     TrackDirective,
     MinDirective,
     TruncatePipe,
+    PageTemplate,
   ],
   exports: [
     CardComponent,
@@ -37,6 +39,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     TrackDirective,
     MinDirective,
     TruncatePipe,
+    PageTemplate,
   ],
 })
 export class UiModule {}
