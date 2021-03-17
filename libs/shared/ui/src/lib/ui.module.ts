@@ -10,6 +10,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { TrackDirective } from './directives/track.directive';
 import { MinDirective } from './directives/min.directive';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
@@ -22,6 +23,7 @@ import { MinDirective } from './directives/min.directive';
     InputControlComponent,
     TrackDirective,
     MinDirective,
+    TruncatePipe,
   ],
   exports: [
     CardComponent,
@@ -34,6 +36,7 @@ import { MinDirective } from './directives/min.directive';
     RouterModule,
     TrackDirective,
     MinDirective,
+    TruncatePipe,
   ],
 })
 export class UiModule {}

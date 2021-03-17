@@ -1,3 +1,5 @@
 <span>{{ props.icon }}
-  <a abUiTrack [routerLink]="props.link">{{ props.caption }}</a>
+  <a abUiTrack [routerLink]="props.link">
+    {{ props.caption | uppercase | truncate:3:'---' }}
+  </a>
 </span>
