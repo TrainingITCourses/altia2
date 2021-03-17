@@ -8,6 +8,8 @@ import { HeaderTitleComponent } from './components/header-title/header-title.com
 import { InputControlComponent } from './components/input-control/input-control.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { TrackDirective } from './directives/track.directive';
+import { MinDirective } from './directives/min.directive';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
@@ -18,6 +20,8 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
     LoadingComponent,
     ErrorComponent,
     InputControlComponent,
+    TrackDirective,
+    MinDirective,
   ],
   exports: [
     CardComponent,
@@ -28,6 +32,8 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
     ReactiveFormsModule,
     InputControlComponent,
     RouterModule,
+    TrackDirective,
+    MinDirective,
   ],
 })
 export class UiModule {}
