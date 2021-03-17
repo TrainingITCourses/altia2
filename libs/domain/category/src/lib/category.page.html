@@ -1,10 +1,20 @@
-<ab-ui-page *ngIf="category$ | async as category" [headerProps]="{caption:category.name}">
+<!-- <ab-ui-page *ngIf="category$ | async as category" [headerProps]="{caption:category.name}">
   <ab-ui-card
               [props]="{title:{ caption:category.name, link: '/category/'+ category.id }, description:category.description, footer:''}">
   </ab-ui-card>
   <hr>
   <hr>
   <ab-ui-card *ngFor="let item of items$ | async"
+              [props]="{title:{ caption:item.name, link: '/item/'+ item.id }, description:item.description, footer:''}">
+  </ab-ui-card>
+</ab-ui-page> -->
+<ab-ui-page *ngIf="allResults$ | async as results" [headerProps]="{caption:results[0].name}">
+  <ab-ui-card
+              [props]="{title:{ caption:results[0].name, link: '/category/'+ results[0].id }, description:results[0].description, footer:''}">
+  </ab-ui-card>
+  <hr>
+  <hr>
+  <ab-ui-card *ngFor="let item of results[1]"
               [props]="{title:{ caption:item.name, link: '/item/'+ item.id }, description:item.description, footer:''}">
   </ab-ui-card>
 </ab-ui-page>
