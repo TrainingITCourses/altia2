@@ -3,4 +3,5 @@ export interface Category {
   description: string;
   id?: string;
   ownerId?: string;
+  itemCount?: number;
 }
