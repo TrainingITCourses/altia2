@@ -11,3 +11,5 @@
 </main>
 <footer><a href="https://twitter.com/albertobasalo">By Alberto Basalo</a></footer>
 <!-- <input type="number" [(ngModel)]="edad" required min="18"  >  -->
+<button *ngIf="updateAvilable" (click)="reload()">Update available. Click to refresh</button>
+<button *ngIf="shouldInstall()" (click)="installPWA()">Install as an application</button>

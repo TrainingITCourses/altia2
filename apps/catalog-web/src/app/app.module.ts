@@ -19,6 +19,8 @@ import {
 } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { AppComponent } from './app.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -57,6 +59,7 @@ import { AppComponent } from './app.component';
     DataModule,
     TermBoxModule,
     AuditModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuditInterceptor, multi: true },
