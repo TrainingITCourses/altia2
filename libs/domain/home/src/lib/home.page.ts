@@ -4,8 +4,8 @@ import {
   ChangeDetectorRef,
   Component,
 } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { forkJoin, Observable } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { HomeService } from './data/home.service';
 @Component({
   templateUrl: './home.page.html',
@@ -13,18 +13,19 @@ import { HomeService } from './data/home.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage {
-  //categories: any[] = [];
   categories$: Observable<Category[]>;
   loading = true;
   error = '';
 
-  constructor(service: HomeService, cdr: ChangeDetectorRef) {
-    // this.categories = service.getAllCategories();
-
+  constructor(private service: HomeService, cdr: ChangeDetectorRef) {
     this.categories$ = service.getCategories$().pipe(
+      switchMap((categoriesAPI) =>
+        this.getCategoriesWithCounter$(categoriesAPI)
+      ),
       tap({
-        next: () => (this.loading = false),
-
+        next: () => {
+          this.loading = false;
+        },
         error: (err) => {
           this.error = err.message;
           this.loading = false;
@@ -32,12 +33,24 @@ export class HomePage {
         },
       })
     );
-    // service.getCategories$().subscribe({
-    //   next: (data) => {
-    //     this.categories = data;
-    //     console.log(this.categories);
-    //     cdr.markForCheck();
-    //   },
-    // });
+  }
+
+  getCategoriesWithCounter$(categories: Category[]) {
+    return this.getCounters$(categories).pipe(
+      map((counters) => this.fillCategoriesWithCounters(categories, counters))
+    );
+  }
+
+  getCounters$(categories: Category[]) {
+    const counters$: Observable<number>[] = categories.map((category) =>
+      this.service.getCountItemsByCategoryId$(category.id || '')
+    );
+    return forkJoin(counters$);
+  }
+  fillCategoriesWithCounters(categories: Category[], counters: number[]) {
+    return categories.map((category: Category, index: number) => {
+      const itemsCount = counters[index];
+      return { ...category, itemCount: itemsCount };
+    });
   }
 }

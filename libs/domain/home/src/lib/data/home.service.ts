@@ -13,6 +13,10 @@ export class HomeService {
     return this.http.get<Category[]>(url);
   }
 
+  getCountItemsByCategoryId$(categoryId: string) {
+    const url = `https://angularbuilders-pre.herokuapp.com/api/v1/categories/${categoryId}/items/count`;
+    return this.http.get<number>(url);
+  }
   getAllCategories() {
     return [{ name: 'Library' }, { name: 'course' }];
   }
