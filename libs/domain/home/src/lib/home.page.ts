@@ -5,7 +5,7 @@ import {
   Component,
 } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { HomeService } from './data/home.service';
 @Component({
   templateUrl: './home.page.html',
@@ -19,11 +19,12 @@ export class HomePage {
 
   constructor(private service: HomeService, cdr: ChangeDetectorRef) {
     this.categories$ = service.getCategories$().pipe(
+      switchMap((categoriesAPI) =>
+        this.getCategoriesWithCounter$(categoriesAPI)
+      ),
       tap({
-        next: (categoriesAPI) => {
+        next: () => {
           this.loading = false;
-          cdr.markForCheck();
-          this.fillCategories$(categoriesAPI);
         },
         error: (err) => {
           this.error = err.message;
@@ -34,15 +35,15 @@ export class HomePage {
     );
   }
 
-  fillCategories$(categories: Category[]) {
-    this.categories$ = this.getCounters$(categories).pipe(
+  getCategoriesWithCounter$(categories: Category[]) {
+    return this.getCounters$(categories).pipe(
       map((counters) => this.fillCategoriesWithCounters(categories, counters))
     );
   }
 
   getCounters$(categories: Category[]) {
-    const counters$: Observable<number>[] = categories.map((c) =>
-      this.service.getCountItemsByCategoryId$(c.id || '')
+    const counters$: Observable<number>[] = categories.map((category) =>
+      this.service.getCountItemsByCategoryId$(category.id || '')
     );
     return forkJoin(counters$);
   }

@@ -1,11 +1,3 @@
-<!-- <ab-ui-page-header [props]="{caption:'Categorías'}"></ab-ui-page-header>
-<ab-home-categories class="main"
-                      *ngIf="categories$ | async as categories"
-                      [categories]="categories">
-  </ab-home-categories>
-<ab-ui-loading *ngIf="loading"></ab-ui-loading>
-<ab-ui-error *ngIf="error" [props]="error"></ab-ui-error>
--->
 <ab-ui-page [headerProps]="{caption:'Categories'}">
   <ab-home-categories
                       *ngIf="categories$ | async as categories"
